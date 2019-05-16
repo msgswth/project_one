@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.InterviewDao">
+    <insert id="addInterview">
+        insert into T_INTERVIEW(V_ID,RS_ID,RCT_ID,V_DATE,V_IS_READ,V_IS_ACCEPT,V_IS_AGREE)
+        values (INTERVIEW_SEQ.nextval,#{rs_id},#{rct_id},#{v_date},#{v_is_read},#{v_is_accept},#{v_is_agree})
+    </insert>
+
+    <update id="updateInterview">
+        update T_INTERVIEW set RS_ID=#{rs_id},RCT_ID=#{rct_id},V_DATE=#{v_date},V_IS_READ=#{v_is_read},
+        V_IS_ACCEPT=#{v_is_accept},V_IS_AGREE=#{v_is_agree} where v_id=#{v_id}
+    </update>
+
+    <delete id="deleteInterview">
+        delete from T_INTERVIEW where V_ID=#{v_id}
+    </delete>
+
+    <select id="getInterview" resultType="com.iotek.model.Interview">
+        select * from T_INTERVIEW where RS_ID=#{rs_id} and RCT_ID=#{rct_id}
+    </select>
+
+    <select id="getInterviewByRsID" resultType="com.iotek.model.Interview">
+        select * from T_INTERVIEW where RS_ID=#{rs_id}
+    </select>
+
+    <select id="getInterviewByRctID" resultType="com.iotek.model.Interview">
+        select * from T_INTERVIEW where RCT_ID=#{rct_id}
+    </select>
+</mapper>
