@@ -12,8 +12,9 @@
     </update>
 
     <delete id="deleteRecruit">
-        delete from T_RECRUIT where RCT_ID=#{rct_id}
+        delete from T_RECRUIT where RCT_ID=#{rct_id} and rct_is_draft='草稿'
     </delete>
+
 
     <select id="getAllRecruit" resultType="com.iotek.model.Recruit">
         select * from T_RECRUIT where RCT_IS_PUBLISH='已发布'

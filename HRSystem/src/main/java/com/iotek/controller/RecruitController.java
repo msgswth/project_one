@@ -42,19 +42,21 @@ public class RecruitController {
 
     @RequestMapping("updateRecruit")
     public String updateRecruit(Recruit rct,HttpSession session)throws Exception{
-
-
+        recruitService.updateRecruit(rct);
+        return "manageRecruit";
     }
 
     @RequestMapping("deleteRecruit")
-    public String deleteRecruit(Integer rct_id,HttpSession session)throws Exception{
-
-
+    public String deleteRecruit(Recruit rct,HttpSession session)throws Exception{
+        recruitService.deleteRecruit(rct);
+        return "manageRecruit";
     }
 
     @RequestMapping("addRecruit")
     public String addRecruit(Recruit rct,HttpSession session)throws Exception{
-
-
+        recruitService.addRecruit(rct);
+        List<Recruit> recruits=recruitService.queryAllRecruit();
+        session.setAttribute("myRecruits",recruits);
+        return "manageRecruit";
     }
 }

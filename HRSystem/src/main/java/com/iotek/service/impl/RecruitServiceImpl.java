@@ -26,11 +26,11 @@ public class RecruitServiceImpl implements RecruitService {
         return recruitDao.queryAllRecruit();
     }
 
-    public boolean deleteRecruit(Integer rct_id) {
-        if(rct_id==null || rct_id==0){
+    public boolean deleteRecruit(Recruit recruit) {
+        if(recruit==null){
             return false;
         }
-        return recruitDao.deleteRecruit(rct_id);
+        return recruitDao.deleteRecruit(recruit);
     }
 
     public boolean updateRecruit(Recruit recruit) {
