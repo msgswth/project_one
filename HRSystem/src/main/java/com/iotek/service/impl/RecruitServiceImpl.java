@@ -25,4 +25,25 @@ public class RecruitServiceImpl implements RecruitService {
     public List<Recruit> queryAllRecruit() {
         return recruitDao.queryAllRecruit();
     }
+
+    public boolean deleteRecruit(Integer rct_id) {
+        if(rct_id==null || rct_id==0){
+            return false;
+        }
+        return recruitDao.deleteRecruit(rct_id);
+    }
+
+    public boolean updateRecruit(Recruit recruit) {
+        if(recruit==null){
+            return false;
+        }
+        return recruitDao.updateRecruit(recruit);
+    }
+
+    public boolean addRecruit(Recruit recruit) {
+        if(recruit==null){
+            return false;
+        }
+        return recruitDao.addRecruit(recruit);
+    }
 }

@@ -39,4 +39,22 @@ public class RecruitController {
        session.setAttribute("myRecruits",recruits);
        return "manageRecruit";
     }
+
+    @RequestMapping("updateRecruit")
+    public String updateRecruit(Recruit rct,HttpSession session)throws Exception{
+
+
+    }
+
+    @RequestMapping("deleteRecruit")
+    public String deleteRecruit(Integer rct_id,HttpSession session)throws Exception{
+
+
+    }
+
+    @RequestMapping("addRecruit")
+    public String addRecruit(Recruit rct,HttpSession session)throws Exception{
+
+
+    }
 }

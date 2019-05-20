@@ -15,6 +15,7 @@
 <head>
     <base href="<%=basePath%>"/>
     <title>Title</title>
+
 </head>
 <body>
 <div>
@@ -46,16 +47,28 @@
             <td><%=recruit.getRct_salary()%></td>
             <td><%=recruit.getEmp_id()%></td>
             <td>
-                <form action="sendResume" method="post">
-                    <input type="hidden" name="rct_id" value="<%=recruit.getRct_id()%>">
-                    <input type="hidden" name="t_id" value="${sessionScope.to.t_id}">
+                <%
+                if(recruit.getRct_is_draft().equals("草稿")){
+                %>
+                <input type="button" value="草稿">
+                <%
+                }else {
+                %>
+                <form action="updateRecruit" method="post">
+                    <input type="hidden" name="rct_id" value="<%=%>">
+                    <input type="hidden" name="t_id" value="<%=%>">
                     <input type="submit" value="提交">
                 </form>
+                <%
+                }
+
+                }
+                %>
+
             </td>
         </tr>
 
         <%
-            }
         }else {
         %>
         <tr>

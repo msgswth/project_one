@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.iotek.dao.RecruitDao">
+    <insert id="addRecruit">
+        insert into T_RECRUIT (RCT_ID, COM_NAME, POS_ID, RCT_INTRO, RCT_TIME, RCT_ADDRESS, RCT_SALARY, EMP_ID)
+        values (RECRUIT_SEQ.nextval,#{com_name},#{pos_id},#{rct_intro},#{rct_time},#{rct_address},#{rct_salary},#{emp_id})
+    </insert>
+
+    <update id="updateRecruit">
+        update T_RECRUIT set COM_NAME=#{com_name},POS_ID=#{pos_id},RCT_INTRO=#{rct_intro},RCT_TIME=#{rct_time},
+        RCT_ADDRESS=#{rct_address},RCT_SALARY=#{rct_salary},EMP_ID=#{emp_id} where rct_id=#{rct_id}
+    </update>
+
+    <delete id="deleteRecruit">
+        delete from T_RECRUIT where RCT_ID=#{rct_id}
+    </delete>
+
     <select id="getAllRecruit" resultType="com.iotek.model.Recruit">
         select * from T_RECRUIT where RCT_IS_PUBLISH='已发布'
     </select>
