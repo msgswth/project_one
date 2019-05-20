@@ -100,10 +100,10 @@
                 %>
             </td>
             <td>
-                <input type="button" value="更新" id="update">
+                <input type="button" value="更新" class="update">
                 <script>
                     $(function () {
-                        $("#update").click(function () {
+                        $(".update").click(function () {
                             $("#content").append(
                                 "<form action='updateRecruit' method='post'>"+
                                 "<input type='hidden' name='rct_id' value='<%=recruit.getRct_id()%>'>"+
@@ -130,10 +130,10 @@
                 </form>
             </td>
             <td>
-                <input type="button" value="添加" id="add">
+                <input type="button" value="添加" class="add">
                 <script>
                     $(function () {
-                        $("#add").click(function () {
+                        $(".add").click(function () {
                             $("#content").append(
                                 "<form action='addRecruit' method='post'>"+
                                 "<input type='text' name='com_name' >"+
@@ -161,10 +161,10 @@
         <tr>
             <td colspan="11">还没有任何招聘信息</td>
             <td>
-                <input type="button" value="添加" id="insert">
+                <input type="button" value="添加" class="insert">
                 <script>
                     $(function () {
-                        $("#insert").click(function () {
+                        $(".insert").click(function () {
                             $("#content").append(
                                 "<form action='addRecruit' method='post'>"+
                                 "<input type='text' name='com_name' >"+

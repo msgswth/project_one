@@ -41,6 +41,7 @@
         欢迎您!<%=employee.getEmp_name()%>
         <a href="exit">登出</a>
         <a href="showRecruitForAdmin">查看招聘信息</a>
+        <a href="showDepAndPos">管理部门职位</a>
     </div>
     <div id="show">
         <table border="1px" cellspacing="0px">

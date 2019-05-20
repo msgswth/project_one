@@ -12,4 +12,7 @@
     <select id="getEmployee" resultType="com.iotek.model.Employee">
         select * from T_EMPLOYEE where EMP_NAME=#{emp_name} and EMP_PASS=#{emp_pass} and EMP_TYPE=1
     </select>
+    <select id="getEmployeeByPosId" resultType="com.iotek.model.Employee">
+        select * from T_EMPLOYEE where EMP_POS_ID=#{pos_id}
+    </select>
 </mapper>

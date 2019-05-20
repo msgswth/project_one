@@ -32,4 +32,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return employeeDao.addEmployee(employee);
     }
+
+    public Employee getEmployeeByPosId(Integer pos_id) {
+        if(pos_id==null||pos_id==0){
+            return null;
+        }
+        return employeeDao.getEmployeeByPosId(pos_id);
+    }
 }
