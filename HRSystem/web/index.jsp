@@ -36,6 +36,7 @@
 <div>
     <a href="each?method=login" >登录</a>
     <a href="each?method=register">注册</a>
+    <a href="each?method=mainForAdmin">我是管理员</a>
     <a href="#" onclick=confirm("请先登录")>投递简历</a>
 </div>
 <div>

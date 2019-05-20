@@ -32,4 +32,11 @@ public class RecruitController {
         session.setAttribute("recruits",recruits);
         return "main";
     }
+
+    @RequestMapping("showRecruitForAdmin")
+    public String showRecruitForAdmin(HttpSession session)throws Exception{
+       List<Recruit> recruits=recruitService.queryAllRecruit();
+       session.setAttribute("myRecruits",recruits);
+       return "manageRecruit";
+    }
 }

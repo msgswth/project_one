@@ -28,4 +28,11 @@ public class TouristServiceImpl implements TouristService {
     public List<Tourist> getAllTourist() {
         return touristDao.getAllTourist();
     }
+
+    public Tourist getTouristById(Integer t_id) {
+        if(t_id==null||t_id==0){
+            return null;
+        }
+        return touristDao.getTouristById(t_id);
+    }
 }

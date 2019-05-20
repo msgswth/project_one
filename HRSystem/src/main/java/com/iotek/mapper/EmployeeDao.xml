@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.EmployeeDao">
+    <insert id="addEmployee">
+        insert into T_EMPLOYEE (EMP_ID,EMP_NAME,EMP_PASS,EMP_TYPE) values (EMPLOYEE_SEQ.nextval,#{emp_name},#{emp_pass},#{emp_type})
+    </insert>
+
+    <select id="getEmployeeForAdmin" resultType="com.iotek.model.Employee">
+        select * from T_EMPLOYEE where EMP_NAME=#{emp_name} and EMP_PASS=#{emp_pass} and EMP_TYPE=2
+    </select>
+
+    <select id="getEmployee" resultType="com.iotek.model.Employee">
+        select * from T_EMPLOYEE where EMP_NAME=#{emp_name} and EMP_PASS=#{emp_pass} and EMP_TYPE=1
+    </select>
+</mapper>

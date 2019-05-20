@@ -25,4 +25,8 @@
     <select id="getResume" resultType="com.iotek.model.Resume">
         select * from T_RESUME where T_ID=#{t_id}
     </select>
+
+    <select id="getResumeById" resultType="com.iotek.model.Resume">
+        select * from T_RESUME where RS_ID=#{rs_id}
+    </select>
 </mapper>

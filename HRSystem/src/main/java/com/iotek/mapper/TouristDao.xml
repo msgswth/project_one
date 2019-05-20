@@ -14,4 +14,8 @@
     <select id="getAllTourist" resultType="com.iotek.model.Tourist">
         select * from T_TOURIST
     </select>
+
+    <select id="getTouristById" resultType="com.iotek.model.Tourist">
+        select * from T_TOURIST where T_ID=#{t_id}
+    </select>
 </mapper>

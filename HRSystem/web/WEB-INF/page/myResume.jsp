@@ -14,9 +14,14 @@
 
 </head>
 <body>
-<% Resume resume= (Resume) session.getAttribute("myResume");
+<%
+    Resume resume= (Resume) session.getAttribute("myResume");
     Tourist tourist = (Tourist) session.getAttribute("to");
 %>
+<form action="each" method="post">
+    <input type="hidden" name="method" value="main">
+    <input type="submit" value="返回首页">
+</form>
 
 <div id="content">
 

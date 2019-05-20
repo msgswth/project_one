@@ -8,4 +8,5 @@ public interface TouristDao {
     Tourist getTourist(Tourist tourist);
     boolean addTourist(Tourist tourist);
     List<Tourist> getAllTourist();
+    Tourist getTouristById(Integer t_id);
 }

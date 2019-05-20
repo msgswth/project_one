@@ -33,6 +33,10 @@ public class InterviewServiceImpl implements InterviewService {
         return interviewDao.getInterviewByRctID(interview);
     }
 
+    public List<Interview> getAllInterview() {
+        return interviewDao.getAllInterview();
+    }
+
     public boolean addInterview(Interview interview) {
         if(interview==null){
             return false;

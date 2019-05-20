@@ -9,8 +9,8 @@ public class Interview implements Serializable {
     private Integer rct_id;
     private Date v_date;
     private String v_is_read;
-    private String v_is_accept;
-    private String v_is_agree;
+    private String v_is_accept;//接受代表录用此人
+    private String v_is_agree;//同意代表参加面试
 
     public Integer getV_id() {
         return v_id;

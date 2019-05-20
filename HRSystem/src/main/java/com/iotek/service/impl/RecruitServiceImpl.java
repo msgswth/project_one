@@ -14,4 +14,15 @@ public class RecruitServiceImpl implements RecruitService {
     public List<Recruit> getAllRecruit() {
         return recruitDao.getAllRecruit();
     }
+
+    public Recruit getRecruitById(Integer rct_id) {
+        if(rct_id==null || rct_id==0){
+            return null;
+        }
+        return recruitDao.getRecruitById(rct_id);
+    }
+
+    public List<Recruit> queryAllRecruit() {
+        return recruitDao.queryAllRecruit();
+    }
 }

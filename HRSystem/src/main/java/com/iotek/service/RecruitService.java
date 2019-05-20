@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RecruitService {
     List<Recruit> getAllRecruit();
+    Recruit getRecruitById(Integer rct_id);
+    List<Recruit> queryAllRecruit();
 }

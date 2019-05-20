@@ -1,11 +1,9 @@
 <%@ page import="com.iotek.model.Recruit" %>
-<%@ page import="java.util.List" %>
-<%@ page import="com.iotek.model.Tourist" %>
-<%@ page import="com.iotek.model.Resume" %><%--
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: 90314
-  Date: 2019/5/15
-  Time: 16:12
+  Date: 2019/5/19
+  Time: 21:52
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -17,29 +15,8 @@
 <head>
     <base href="<%=basePath%>"/>
     <title>Title</title>
-    <style>
-        div{
-            border: 2px solid black;
-            padding: 5px;
-            border-radius: 5px;
-            margin: 10px;
-        }
-        table{
-            border: 1px solid black;
-            mso-cellspacing: 0px;
-        }
-        td{
-            border: 1px solid black;
-            padding: 5px;
-        }
-    </style>
 </head>
 <body>
-
-欢迎您，${sessionScope.to.t_name}<span>　　</span>
-<a href="getResume?t_id=${sessionScope.to.t_id}">查看我的简历</a><span>　　</span>
-<a href="checkInterview?rs_id=${sessionScope.myResume.rs_id}">查看面试邀请</a><span>　　</span>
-<hr/>
 <div>
     <table>
         <tr>
@@ -50,11 +27,13 @@
             <th>公司地址</th>
             <th>薪资</th>
             <th>联系人</th>
-            <th>投递简历</th>
+            <th>是否撤销</th>
+            <th>是否发布</th>
+            <th>更新招聘信息</th>
+            <th>删除招聘信息</th>
         </tr>
         <%
-            Resume resume= (Resume) session.getAttribute("myResume");
-            List<Recruit> recruits= (List<Recruit>) session.getAttribute("recruits");
+            List<Recruit> recruits= (List<Recruit>) session.getAttribute("myRecruits");
             if(recruits!=null&&recruits.size()!=0){
                 for (Recruit recruit : recruits) {
         %>
@@ -80,7 +59,7 @@
         }else {
         %>
         <tr>
-            <td colspan="7">还没有任何招聘信息</td>
+            <td colspan="11">还没有任何招聘信息</td>
         </tr>
         <%
             }
@@ -88,6 +67,7 @@
 
     </table>
 </div>
+
 
 </body>
 </html>
