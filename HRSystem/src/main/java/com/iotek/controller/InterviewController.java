@@ -69,9 +69,9 @@ public class InterviewController {
     }
 
     @RequestMapping("updateInterview")
-    protected String updateInterview(Interview interview) throws Exception{
+    protected String updateInterview(Interview interview,HttpSession session) throws Exception{
         interviewService.updateInterview(interview);
-        return "mainForAdmin";
+        return getInterview(session);
     }
 
 

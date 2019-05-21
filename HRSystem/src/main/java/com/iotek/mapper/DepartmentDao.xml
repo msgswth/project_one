@@ -20,4 +20,8 @@
     <select id="getAllDepartment" resultType="com.iotek.model.Department">
         select * from T_DEPARTMENT
     </select>
+
+    <select id="getDepByName" resultType="com.iotek.model.Department">
+        select * from T_DEPARTMENT where DEP_NAME=#{dep_name}
+    </select>
 </mapper>

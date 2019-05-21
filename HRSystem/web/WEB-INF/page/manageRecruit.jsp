@@ -107,15 +107,15 @@
                             $("#content").append(
                                 "<form action='updateRecruit' method='post'>"+
                                 "<input type='hidden' name='rct_id' value='<%=recruit.getRct_id()%>'>"+
-                                "<input type='hidden' name='com_name' value='<%=recruit.getCom_name()%>'>"+
-                                "<input type='hidden' name='pos_id' value='<%=recruit.getPos_id()%>'>"+
-                                "<input type='hidden' name='rct_intro' value='<%=recruit.getRct_intro()%>'>"+
-                                "<input type='date' hidden name='rct_time' value='<%=recruit.getRct_time()%>'>"+
-                                "<input type='hidden' name='rct_address' value='<%=recruit.getRct_address()%>'>"+
-                                "<input type='hidden' name='rct_salary' value='<%=recruit.getRct_salary()%>'>"+
-                                "<input type='hidden' name='emp_id' value='<%=recruit.getEmp_id()%>'>"+
-                                "<input type='hidden' name='rct_is_draft' value='<%=recruit.getRct_is_draft()%>'>"+
-                                "<input type='hidden' name='rct_is_publish' value='<%=recruit.getRct_is_publish()%>'>"+
+                                "<input type='text' name='com_name' value='<%=recruit.getCom_name()%>'>"+
+                                "<input type='text' name='pos_id' value='<%=recruit.getPos_id()%>'>"+
+                                "<input type='text' name='rct_intro' value='<%=recruit.getRct_intro()%>'>"+
+                                "<input type='date' name='rct_time' value='<%=recruit.getRct_time()%>'>"+
+                                "<input type='text' name='rct_address' value='<%=recruit.getRct_address()%>'>"+
+                                "<input type='text' name='rct_salary' value='<%=recruit.getRct_salary()%>'>"+
+                                "<input type='text' name='emp_id' value='<%=recruit.getEmp_id()%>'>"+
+                                "<input type='text' name='rct_is_draft' value='<%=recruit.getRct_is_draft()%>'>"+
+                                "<input type='text' name='rct_is_publish' value='<%=recruit.getRct_is_publish()%>'>"+
                                 "<input type='submit' value='更新'>"+
                                 "</form>")
                         })
@@ -145,7 +145,7 @@
                                 "<input type='text' name='emp_id' >"+
                                 "<input type='text' name='rct_is_draft' >"+
                                 "<input type='text' name='rct_is_publish' >"+
-                                "<input type='submit' value='更新'>"+
+                                "<input type='submit' value='添加'>"+
                                 "</form>")
                         })
                     })
@@ -176,7 +176,7 @@
                                 "<input type='text' name='emp_id' >"+
                                 "<input type='text' name='rct_is_draft' >"+
                                 "<input type='text' name='rct_is_publish' >"+
-                                "<input type='submit' value='更新'>"+
+                                "<input type='submit' value='添加'>"+
                                 "</form>")
                         })
                     })

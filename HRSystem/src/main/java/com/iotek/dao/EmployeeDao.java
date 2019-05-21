@@ -7,4 +7,5 @@ public interface EmployeeDao {
     Employee getEmployee(Employee employee);
     boolean addEmployee(Employee employee);
     Employee getEmployeeByPosId(Integer pos_id);
+    boolean updateEmployee(Employee employee);
 }

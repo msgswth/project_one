@@ -29,7 +29,6 @@
             <th>员工姓名</th>
             <th>更新</th>
             <th>删除</th>
-            <th>添加</th>
         </tr>
         <%
         if(bonds!=null&&bonds.size()!=0){
@@ -42,22 +41,55 @@
             <td><%=bond.getEmployee().getEmp_name()%></td>
             <td>
                 <input type="button" value="更新" class="update">
+                <script>
+                    $(function () {
+                        $(".update").click(function () {
+                            $("#content").append(
+                                "<form action='updateDepAndPos' method='post'>"+
+                                "<input type='hidden' name='dep_id' value='<%=bond.getDepartment().getDep_id()%>'>"+
+                                "<input type='text' name='dep_name' value='<%=bond.getDepartment().getDep_name()%>'>"+
+                                "<input type='hidden' name='pos_id' value='<%=bond.getPosition().getPos_id()%>'>"+
+                                "<input type='text' name='pos_name' value='<%=bond.getPosition().getPos_name()%>'>"+
+                                "<input type='submit' value='更新'>"+
+                                "</form>")
+                        })
+                    })
+                </script>
             </td>
             <td>
-
+                <form action="deleteDepAndPos" method="post">
+                    <input type="hidden" name="dep_id" value="<%=bond.getDepartment().getDep_id()%>">
+                    <input type="hidden" name="pos_id" value="<%=bond.getPosition().getPos_id()%>">
+                    <input type="submit" value="删除">
+                </form>
             </td>
-            <td>
 
-            </td>
         </tr>
         <%
             }
+        %>
+        <tr>
+            <td colspan="6">
+                <form action="addDepAndPos" method="post">
+                    部门名字：<input type="text" name="dep_name" >
+                    职位名字：<input type="text" name="pos_name" >
+                    <input type="submit" value="添加">
+                </form>
+            </td>
+        </tr>
+        <%
         }else {
         %>
         <tr>
             <td colspan="6">还没有任何部门或职位！</td>
-            <td>
-                <input type="button" value="添加">
+        </tr>
+        <tr>
+            <td colspan="6">
+                <form action="addDepAndPos" method="post">
+                    部门名字：<input type="text" name="dep_name" >
+                    职位名字：<input type="text" name="pos_name" >
+                    <input type="submit" value="添加">
+                </form>
             </td>
         </tr>
         <%

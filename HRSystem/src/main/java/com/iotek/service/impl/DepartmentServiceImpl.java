@@ -66,6 +66,13 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentDao.getDepById(department);
     }
 
+    public Department getDepByName(Department department) {
+        if(department==null){
+            return null;
+        }
+        return departmentDao.getDepByName(department);
+    }
+
     public List<Department> getAllDepartment() {
         return departmentDao.getAllDepartment();
     }

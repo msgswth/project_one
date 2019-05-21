@@ -43,20 +43,18 @@ public class RecruitController {
     @RequestMapping("updateRecruit")
     public String updateRecruit(Recruit rct,HttpSession session)throws Exception{
         recruitService.updateRecruit(rct);
-        return "manageRecruit";
+        return showRecruitForAdmin(session);
     }
 
     @RequestMapping("deleteRecruit")
     public String deleteRecruit(Recruit rct,HttpSession session)throws Exception{
         recruitService.deleteRecruit(rct);
-        return "manageRecruit";
+        return showRecruitForAdmin(session);
     }
 
     @RequestMapping("addRecruit")
     public String addRecruit(Recruit rct,HttpSession session)throws Exception{
         recruitService.addRecruit(rct);
-        List<Recruit> recruits=recruitService.queryAllRecruit();
-        session.setAttribute("myRecruits",recruits);
-        return "manageRecruit";
+        return showRecruitForAdmin(session);
     }
 }

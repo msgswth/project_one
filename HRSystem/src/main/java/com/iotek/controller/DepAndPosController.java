@@ -44,6 +44,32 @@ public class DepAndPosController {
             }
         }
         session.setAttribute("bonds",bonds);
+        session.setAttribute("departments",departments);
         return "manageDepAndPos";
+    }
+
+    @RequestMapping("updateDepAndPos")
+    protected String updateDepAndPos(Department department,Position position,HttpSession session)throws Exception{
+        departmentService.updateDepartment(department);
+        positionService.updatePosition(position);
+        return showDepAndPos(session);
+    }
+
+    @RequestMapping("deleteDepAndPos")
+    protected String deleteDepAndPos(Department department,Position position,HttpSession session)throws Exception{
+        positionService.deletePosition(position);
+        departmentService.deleteDepartment(department);
+        return showDepAndPos(session);
+    }
+
+    @RequestMapping("addDepAndPos")
+    protected String addDepAndPos(Department department,String pos_name,HttpSession session)throws Exception{
+        departmentService.addDepartment(department);
+        Department department1=departmentService.getDepByName(department);
+        Position position=new Position();
+        position.setPos_name(pos_name);
+        position.setDep_id(department1.getDep_id());
+        positionService.addPosition(position);
+        return showDepAndPos(session);
     }
 }

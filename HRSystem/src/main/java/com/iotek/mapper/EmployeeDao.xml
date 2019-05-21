@@ -5,6 +5,12 @@
         insert into T_EMPLOYEE (EMP_ID,EMP_NAME,EMP_PASS,EMP_TYPE) values (EMPLOYEE_SEQ.nextval,#{emp_name},#{emp_pass},#{emp_type})
     </insert>
 
+    <update id="updateEmployee">
+        update T_EMPLOYEE set EMP_NAME=#{emp_name},EMP_PASS=#{emp_pass},EMP_TYPE=#{emp_type},EMP_GENDER=#{emp_gender},EMP_ADDRESS=#{emp_address},
+        EMP_PHONE=#{emp_phone},EMP_BANK_CARD=#{emp_bank_card},EMP_HIREDATE=#{emp_hiredate},EMP_SALARY=#{emp_salary},EMP_STATE=#{emp_state},
+        EMP_DEP_ID=#{emp_dep_id},EMP_POS_ID=#{emp_pos_id},EMP_IDCARD=#{emp_idcard} where EMP_ID=#{emp_id}
+    </update>
+
     <select id="getEmployeeForAdmin" resultType="com.iotek.model.Employee">
         select * from T_EMPLOYEE where EMP_NAME=#{emp_name} and EMP_PASS=#{emp_pass} and EMP_TYPE=2
     </select>
