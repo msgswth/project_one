@@ -6,6 +6,7 @@ import com.iotek.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -38,5 +39,23 @@ public class EmployeeServiceImpl implements EmployeeService {
             return null;
         }
         return employeeDao.getEmployeeByPosId(pos_id);
+    }
+
+    public boolean updateEmployee(Employee employee) {
+        if(employee==null){
+            return false;
+        }
+        return employeeDao.updateEmployee(employee);
+    }
+
+    public List<Employee> getAllEmployee() {
+        return employeeDao.getAllEmployee();
+    }
+
+    public Employee getEmployeeById(Integer emp_id) {
+        if (emp_id == null || emp_id==0) {
+            return null;
+        }
+        return employeeDao.getEmployeeById(emp_id);
     }
 }

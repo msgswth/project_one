@@ -1,10 +1,7 @@
 package com.iotek.controller;
 
 import com.iotek.model.*;
-import com.iotek.service.InterviewService;
-import com.iotek.service.RecruitService;
-import com.iotek.service.ResumeService;
-import com.iotek.service.TouristService;
+import com.iotek.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,6 +22,10 @@ public class InterviewController {
     private TouristService touristService;
     @Resource
     private RecruitService recruitService;
+    @Resource
+    private EmployeeService employeeService;
+    @Resource
+    private PositionService positionService;
 
     @RequestMapping("sendResume")//投递简历
     protected String addInterview(Integer rct_id,Integer t_id) throws Exception{
@@ -74,5 +75,32 @@ public class InterviewController {
         return getInterview(session);
     }
 
+    @RequestMapping("employ")
+    protected String employ(Interview interview,HttpSession session) throws Exception{
+        interviewService.updateInterview(interview);
+        Integer rs_id=interview.getRs_id();
+        Resume re=new Resume();
+        re.setRs_id(rs_id);
+        Resume resume=resumeService.getResumeById(re);
+        Integer t_id=resume.getT_id();
+        Tourist tourist=touristService.getTouristById(t_id);
+        Integer rct_id=interview.getRct_id();
+        Recruit recruit=recruitService.getRecruitById(rct_id);
+        Integer pos_id=recruit.getPos_id();
+        Position position=positionService.getPositionById(pos_id);
+        Integer dep_id=position.getDep_id();
 
+        Employee employee=new Employee();
+        employee.setEmp_name("ali"+resume.getT_id());
+        employee.setEmp_pass("123456");
+        employee.setEmp_type(1);
+        employee.setEmp_gender(resume.getRs_gender());
+        employee.setEmp_address(resume.getRs_address());
+        employee.setEmp_phone(tourist.getT_phone());
+        employee.setEmp_state("实习");
+        employee.setEmp_dep_id(dep_id);
+        employee.setEmp_pos_id(pos_id);
+        employeeService.register(employee);
+        return getInterview(session);
+    }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.TrainRecordDao">
+    <insert id="addTD">
+        insert into T_TRAIN_RECORD (TD_ID, EMP_ID, TR_ID) VALUES (TRAIN_RECORD_SEQ.nextval,#{emp_id},#{tr_id})
+    </insert>
+
+    <update id="updateTD">
+        update T_TRAIN_RECORD set EMP_ID=#{emp_id},tr_id=#{tr_id} where td_id=#{td_id}
+    </update>
+
+    <delete id="deleteTD">
+        delete from T_TRAIN_RECORD where TD_ID=#{td_id}
+    </delete>
+
+    <select id="getTDByEmpId" resultType="com.iotek.model.TrainRecord">
+        select * from T_TRAIN_RECORD where EMP_ID=#{emp_id}
+    </select>
+
+    <select id="getTDByTrId" resultType="com.iotek.model.TrainRecord">
+        select * from T_TRAIN_RECORD where TR_ID=#{tr_id}
+    </select>
+</mapper>

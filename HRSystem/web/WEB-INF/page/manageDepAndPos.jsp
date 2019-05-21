@@ -15,11 +15,70 @@
 <head>
     <base href="<%=basePath%>"/>
     <title>Title</title>
+    <script src="js/jquery-3.1.0.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type:"get",
+                url:"findDep",
+                success:function (data) {
+                    var department = $("#dep_id");
+                    department.empty();
+                    department.append("<option value='' hidden selected>请选择部门</option>");
+                    for(var i in data){
+                        department.append("<option value='"+data[i]['dep_id']+"'>"+data[i]['dep_name']+"</option>");
+                    }
+                }
+            });
+            $("#dep_id").on("change",function () {
+                $.ajax({
+                    type:"get",
+                    url:"findPos",
+                    data:"dep_id="+$(this).val(),
+                    success:function (data) {
+                        var position = $("#pos_id");
+                        position.empty();
+                        position.append("<option value='' hidden selected>请选择职位</option>");
+                        for(var i in data){
+                            position.append("<option value='"+data[i]['pos_id']+"'>"+data[i]['pos_name']+"</option>");
+                        }
+                    }
+                });
+            });
+
+            $("#pos_id").on("change",function () {
+                $.ajax({
+                    type:"get",
+                    url:"findEmp",
+                    data:"pos_id="+$(this).val(),
+                    success:function (data) {
+                        var employee = $("#emp_id");
+                        employee.empty();
+                        employee.append("<option value='' hidden selected>请选择员工</option>");
+                        for(var i in data){
+                            employee.append("<option value='"+data[i]['emp_id']+"'>"+data[i]['emp_name']+"</option>");
+                        }
+                    }
+                });
+            });
+        })
+    </script>
 </head>
 <body>
 <%
     List<Bond> bonds= (List<Bond>) session.getAttribute("bonds");
 %>
+<div>
+    <select id="dep_id">
+
+    </select>
+    <select id="pos_id">
+
+    </select>
+    <select id="emp_id">
+
+    </select>
+</div>
 <div>
     <table>
         <tr>

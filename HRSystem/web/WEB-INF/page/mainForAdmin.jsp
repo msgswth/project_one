@@ -42,6 +42,7 @@
         <a href="exit">登出</a>
         <a href="showRecruitForAdmin">查看招聘信息</a>
         <a href="showDepAndPos">管理部门职位</a>
+        <a href="getTrain">查看培训记录</a>
     </div>
     <div id="show">
         <table border="1px" cellspacing="0px">
@@ -90,7 +91,7 @@
                     <%
                     }else {
                     %>
-                    <form action="updateInterview" method="post">
+                    <form action="employ" method="post">
                         <input type="date" hidden name="v_date" value="<%=record.getInterview().getV_date()%>">
                         <input type="hidden" name="rs_id" value="<%=record.getInterview().getRs_id()%>">
                         <input type="hidden" name="rct_id" value="<%=record.getInterview().getRct_id()%>">

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.TrainDao">
+    <insert id="addTrain">
+        insert into T_TRAIN (TR_ID, TR_TITLE, TR_CONTEXT, TR_START_TIME, TR_END_TIME, TR_ADDRESS, TR_IS_PUBLISH)
+        VALUES (TRAIN_SEQ.nextval,#{tr_title},#{tr_context},#{tr_start_time},#{tr_end_time},#{tr_address},'未发布')
+    </insert>
+
+    <update id="updateTrain">
+        update T_TRAIN set TR_TITLE=#{tr_title},tr_context=#{tr_context},tr_start_time=#{tr_start_time},tr_end_time=#{tr_end_time},
+        tr_address=#{tr_address},tr_is_publish=#{tr_is_publish} where tr_id=#{tr_id}
+    </update>
+
+    <delete id="deleteTrain">
+        delete from T_TRAIN where TR_ID=#{tr_id}
+    </delete>
+
+    <select id="getAllTrain" resultType="com.iotek.model.Train">
+        select * from T_TRAIN
+    </select>
+
+    <select id="getTrainByState" resultType="com.iotek.model.Train">
+        select * from T_TRAIN where TR_IS_PUBLISH='已发布'
+    </select>
+
+
+</mapper>

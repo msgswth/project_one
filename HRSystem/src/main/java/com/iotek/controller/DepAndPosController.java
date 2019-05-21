@@ -9,6 +9,7 @@ import com.iotek.service.EmployeeService;
 import com.iotek.service.PositionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -71,5 +72,26 @@ public class DepAndPosController {
         position.setDep_id(department1.getDep_id());
         positionService.addPosition(position);
         return showDepAndPos(session);
+    }
+
+    @RequestMapping("findDep")
+    @ResponseBody
+    protected List<Department> findDep(HttpSession session)throws Exception{
+        List<Department> departments=departmentService.getAllDepartment();
+        return departments;
+    }
+
+    @RequestMapping("findPos")
+    @ResponseBody
+    protected List<Position> findPos(Integer dep_id,HttpSession session)throws Exception{
+        List<Position> positions=positionService.getPositionByDepId(dep_id);
+        return positions;
+    }
+
+    @RequestMapping("findEmp")
+    @ResponseBody
+    protected Employee findEmp(Integer pos_id,HttpSession session)throws Exception{
+        Employee employee=employeeService.getEmployeeByPosId(pos_id);
+        return employee;
     }
 }
