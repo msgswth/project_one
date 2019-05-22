@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iotek.dao.CheckDao">
+    <insert id="addCheck"></insert>
+    <update id="updateCheck"></update>
+    <delete id="deleteCheck"></delete>
+    <select id="getCheckById" resultType="com.iotek.model.Check"></select>
+    <select id="getAllCheck" resultType="com.iotek.model.Check"></select>
+    <select id="getCheckByEmpId" resultType="com.iotek.model.Check"></select>
+</mapper>

@@ -25,6 +25,7 @@ public class TrainController {
     @Resource
     private EmployeeService employeeService;
 
+
     @RequestMapping("getTrain")
     protected String getTrain(HttpSession session)throws Exception{
         List<Train> trains=trainService.getAllTrain();

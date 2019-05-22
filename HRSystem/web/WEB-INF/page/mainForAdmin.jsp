@@ -43,6 +43,7 @@
         <a href="showRecruitForAdmin">查看招聘信息</a>
         <a href="showDepAndPos">管理部门职位</a>
         <a href="getTrain">查看培训记录</a>
+
     </div>
     <div id="show">
         <table border="1px" cellspacing="0px">
