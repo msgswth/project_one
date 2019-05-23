@@ -27,6 +27,8 @@ public class EmployeeController {
     @RequestMapping("adminLogin")
     protected String adminLogin(Employee employee, HttpSession session) throws Exception{
         Employee employee1 = employeeService.adminLogin(employee);
+//        List<Employee> emps=employeeService.getAllEmployee();
+//        session.setAttribute("emps",emps);
         if (employee1 != null) {
             session.setAttribute("admin",employee1);
             return "forward:getInterview";

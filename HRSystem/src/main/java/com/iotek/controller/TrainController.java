@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,8 @@ public class TrainController {
     private TrainRecordService trainRecordService;
     @Resource
     private EmployeeService employeeService;
-
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH:mm");
 
     @RequestMapping("getTrain")
     protected String getTrain(HttpSession session)throws Exception{
@@ -56,12 +58,15 @@ public class TrainController {
     }
 
     @RequestMapping("addTrain")
-    protected String addTrain(Integer emp_id,Train train,HttpSession session)throws Exception{
+    protected String addTrain(String time1,String time2,Train train,HttpSession session)throws Exception{
+        java.sql.Date d1=train.getTr_start_time();
+        java.sql.Date d2=train.getTr_end_time();
+        String date1=sdf.format(d1)+"-"+time1;
+        String date2=sdf.format(d2)+"-"+time2;
+        train.setTr_start_time(new java.sql.Date(simpleDateFormat.parse(date1).getTime()));
+        train.setTr_end_time(new java.sql.Date(simpleDateFormat.parse(date2).getTime()));
         trainService.addTrain(train);
-        TrainRecord trainRecord=new TrainRecord();
-        trainRecord.setEmp_id(emp_id);
-        trainRecord.setTr_id(train.getTr_id());
-        trainRecordService.addTD(trainRecord);
+        System.out.println(date1);
         return getTrain(session);
     }
 
@@ -69,6 +74,17 @@ public class TrainController {
     protected String deleteTrain(Train train,HttpSession session)throws Exception{
         if (train.getTr_end_time().getTime()<new Date().getTime()){
             trainService.deleteTrain(train);
+        }
+        return getTrain(session);
+    }
+
+    @RequestMapping("addTrainRecord")
+    protected String addTrainRecord(Integer tr_id,Integer[] emp_id,HttpSession session)throws Exception{
+        TrainRecord trainRecord=new TrainRecord();
+        for (Integer emp : emp_id) {
+            trainRecord.setTr_id(tr_id);
+            trainRecord.setEmp_id(emp);
+            trainRecordService.addTD(trainRecord);
         }
         return getTrain(session);
     }

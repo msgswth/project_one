@@ -43,6 +43,7 @@
         <a href="showRecruitForAdmin">查看招聘信息</a>
         <a href="showDepAndPos">管理部门职位</a>
         <a href="getTrain">查看培训记录</a>
+        <a href="each?method=manageDepAndPos">查看考勤记录</a>
 
     </div>
     <div id="show">
@@ -74,7 +75,7 @@
                 </td>
                 <td>
                     <form action="updateInterview" method="post">
-                        <input type="date" name="v_date">
+                        <input type="datetime-local" name="v_date">
                         <input type="hidden" name="rs_id" value="<%=record.getInterview().getRs_id()%>">
                         <input type="hidden" name="rct_id" value="<%=record.getInterview().getRct_id()%>">
                         <input type="hidden" name="v_is_read" value="<%=record.getInterview().getV_is_read()%>">

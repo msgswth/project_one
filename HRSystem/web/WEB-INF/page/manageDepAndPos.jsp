@@ -56,7 +56,7 @@
                         employee.empty();
                         employee.append("<option value='' hidden selected>请选择员工</option>");
                         for(var i in data){
-                            employee.append("<option value='"+data[i]['emp_id']+"'>"+data[i]['emp_name']+"</option>");
+                            employee.append("<option name='emp_id' value='"+data[i]['emp_id']+"'>"+data[i]['emp_name']+"</option>");
                         }
                     }
                 });
@@ -69,6 +69,7 @@
     List<Bond> bonds= (List<Bond>) session.getAttribute("bonds");
 %>
 <div>
+    <form action="getCheck" method="post">
     <select id="dep_id">
 
     </select>
@@ -78,6 +79,8 @@
     <select id="emp_id">
 
     </select>
+        <input type="submit" value="查看考勤记录">
+    </form>
 </div>
 <div>
     <table>

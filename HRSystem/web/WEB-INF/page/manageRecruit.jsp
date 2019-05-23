@@ -32,7 +32,6 @@
             <th>是否发布</th>
             <th>更新招聘信息</th>
             <th>删除招聘信息</th>
-            <th>添加招聘信息</th>
         </tr>
         <%
             List<Recruit> recruits= (List<Recruit>) session.getAttribute("myRecruits");
@@ -129,37 +128,42 @@
                     <input type="submit" value="删除">
                 </form>
             </td>
-            <td>
-                <input type="button" value="添加" class="add">
-                <script>
-                    $(function () {
-                        $(".add").click(function () {
-                            $("#content").append(
-                                "<form action='addRecruit' method='post'>"+
-                                "<input type='text' name='com_name' >"+
-                                "<input type='text' name='pos_id' >"+
-                                "<input type='text' name='rct_intro' >"+
-                                "<input type='date' name='rct_time' >"+
-                                "<input type='text' name='rct_address' >"+
-                                "<input type='text' name='rct_salary' >"+
-                                "<input type='text' name='emp_id' >"+
-                                "<input type='text' name='rct_is_draft' >"+
-                                "<input type='text' name='rct_is_publish' >"+
-                                "<input type='submit' value='添加'>"+
-                                "</form>")
-                        })
-                    })
-                </script>
-            </td>
+
         </tr>
             <%
                 }
             %>
+        <tr>
+        <td>
+            <input type="button" value="添加" class="add">
+            <script>
+                $(function () {
+                    $(".add").click(function () {
+                        $("#content").append(
+                            "<form action='addRecruit' method='post'>"+
+                            "<input type='text' name='com_name' >"+
+                            "<input type='text' name='pos_id' >"+
+                            "<input type='text' name='rct_intro' >"+
+                            "<input type='date' name='rct_time' >"+
+                            "<input type='text' name='rct_address' >"+
+                            "<input type='text' name='rct_salary' >"+
+                            "<input type='text' name='emp_id' >"+
+                            "<input type='text' name='rct_is_draft' >"+
+                            "<input type='text' name='rct_is_publish' >"+
+                            "<input type='submit' value='添加'>"+
+                            "</form>")
+                    })
+                })
+            </script>
+        </td>
+        </tr>
         <%
         }else {
         %>
         <tr>
             <td colspan="11">还没有任何招聘信息</td>
+        </tr>
+        <tr>
             <td>
                 <input type="button" value="添加" class="insert">
                 <script>
